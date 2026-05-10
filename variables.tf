@@ -1,0 +1,13 @@
+variable "region" {}
+variable "project_name" {}
+variable "vpc_cidr" {}
+variable "public_subnet_cidr_1" {}
+variable "public_subnet_cidr_2" {}
+variable "private_subnet_cidr_1" {}
+variable "private_subnet_cidr_2" {}
+variable "ami" {}
+variable "instance_type" {}
+variable "my_ip" {}
+variable "bucket_name" {}
+variable "alb_logs_bucket" {}
+variable "key_name" {}

@@ -1,0 +1,24 @@
+---
+- name: Install and Start Nginx
+  hosts: app_servers
+  become: yes
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Install Nginx
+      apt:
+        name: nginx
+        state: latest
+
+    - name: Start Nginx service
+      service:
+        name: nginx
+        state: started
+        enabled: yes
+
+    - name: Create a simple index.html
+      copy:
+        content: "<h1>Hello from Seif's App Server!</h1>"
+        dest: /var/www/html/index.html
