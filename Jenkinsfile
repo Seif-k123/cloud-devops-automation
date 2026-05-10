@@ -5,8 +5,8 @@ pipeline {
         AWS_ACCESS_KEY_ID     = credentials('aws-access-key')
         AWS_SECRET_ACCESS_KEY = credentials('aws-secret-key')
         AWS_DEFAULT_REGION    = 'us-east-1'
-        TF_DIR                = '/home/seifkhaled/cloud-devops-automation'
-        ANSIBLE_DIR           = '/home/seifkhaled/cloud-devops-automation/ansible'
+        TF_DIR                = "${WORKSPACE}"
+        ANSIBLE_DIR           = "${WORKSPACE}/ansible"
     }
 
     stages {
