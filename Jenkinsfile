@@ -47,7 +47,7 @@ pipeline {
                     sh '''
                         ansible-playbook -i inventory.ini nginx.yml \
                             --private-key /home/seifkhaled/cloud-devops-automation/ansible/my-keypair.pem \
-                            -o StrictHostKeyChecking=no
+                            --ssh-extra-args="-o StrictHostKeyChecking=no"
                     '''
                 }
             }
