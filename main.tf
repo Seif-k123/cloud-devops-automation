@@ -363,6 +363,6 @@ resource "local_file" "inventory" {
   content  = templatefile("${path.module}/ansible/inventory.tpl", {
     app_ips    = data.aws_instances.asg_instances.private_ips
     bastion_ip = aws_instance.bastion.public_ip
-    key_path   = "/home/seifkhaled/cloud-devops-automation/ansible/my-keypair.pem"
+    key_path   = "/var/lib/jenkins/.ssh/my-keypair.pem"
   })
 }
