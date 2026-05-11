@@ -1,6 +1,6 @@
 provider "aws" {
   region  = var.region
-  
+  profile = "seifuser"
 }
 
 # ---------------- AWS KEY PAIR ----------------
@@ -212,10 +212,12 @@ resource "aws_iam_instance_profile" "profile" {
 # ---------------- S3 ----------------
 resource "aws_s3_bucket" "alb_logs" {
   bucket = var.alb_logs_bucket
+  force_destroy = true
 }
 
 resource "aws_s3_bucket_versioning" "alb_logs_versioning" {
   bucket = aws_s3_bucket.alb_logs.id
+  
 
   versioning_configuration {
     status = "Enabled"
@@ -290,7 +292,7 @@ resource "aws_launch_template" "lt" {
 resource "aws_autoscaling_group" "asg" {
   desired_capacity = 2
   min_size         = 2
-  max_size         = 4
+  max_size         = 2
 
   vpc_zone_identifier = [
     aws_subnet.private_1.id,
